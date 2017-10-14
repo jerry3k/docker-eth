@@ -1,6 +1,6 @@
 FROM nvidia/cuda:8.0-devel-ubuntu16.04
 
-MAINTAINER Anthony Tatowicz
+MAINTAINER John Goodwin <john@jjgoodwin.com>
 
 WORKDIR /
 
@@ -10,33 +10,48 @@ RUN apt-get update \
     && add-apt-repository -y ppa:ethereum/ethereum -y \
     && apt-get update \
     && apt-get install -y git \
-     cmake \
-     libcryptopp-dev \
-     libleveldb-dev \
-     libjsoncpp-dev \
-     libjsonrpccpp-dev \
-     libboost-all-dev \
-     libgmp-dev \
-     libreadline-dev \
-     libcurl4-gnutls-dev \
-     ocl-icd-libopencl1 \
-     opencl-headers \
-     mesa-common-dev \
-     libmicrohttpd-dev \
-     build-essential
-
-# Git repo set up
-RUN git clone https://github.com/ethereum-mining/ethminer.git; \
+        cmake \
+        libcryptopp-dev \
+        libleveldb-dev \
+        libjsoncpp-dev \
+        libjsonrpccpp-dev \
+        libboost-all-dev \
+        libgmp-dev \
+        libreadline-dev \
+        libcurl4-gnutls-dev \
+        ocl-icd-libopencl1 \
+        opencl-headers \
+        mesa-common-dev \
+        libmicrohttpd-dev \
+        build-essential \
+    # Git repo set up
+    && git clone https://github.com/ethereum-mining/ethminer.git; \
     cd ethminer; \
-    git checkout tags/v0.11.0 
-
-# Build
-RUN cd ethminer; \
-    mkdir build; \
+    git checkout tags/v0.12.0 \
+    # Build
+    && mkdir build; \
     cd build; \
     cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON; \
     cmake --build .; \
-    make install;
+    make install \
+    && apt-get -yq purge git \
+        cmake \
+        libcryptopp-dev \
+        libleveldb-dev \
+        libjsoncpp-dev \
+        libjsonrpccpp-dev \
+        libboost-all-dev \
+        libgmp-dev \
+        libreadline-dev \
+        libcurl4-gnutls-dev \
+        ocl-icd-libopencl1 \
+        opencl-headers \
+        mesa-common-dev \
+        libmicrohttpd-dev \
+        build-essential \
+    && apt-get -yq autoclean \
+    && apt-get -yq autoremove \
+    && apt-get -yq clean \
 
 # Env setup
 ENV GPU_FORCE_64BIT_PTR=0
