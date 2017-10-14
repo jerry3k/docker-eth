@@ -5,7 +5,7 @@
 
 Simple and easy to run, if you have a Nvidia GPU and want to mine eth.
 
-**Note:** This image builds ethminer, which an activily maintained Genoil fork <https://github.com/ethereum-mining/ethminer>
+This image pulls https://github.com/ethereum-mining/ethminer/releases unpacks it, and makes it ready to use in nvidia-docker.
 
 ### Requirements
 - Nvidia drivers for your GPU, you can get them here: [Nvidia drivers](http://www.nvidia.com/Download/index.aspx)
@@ -13,10 +13,10 @@ Simple and easy to run, if you have a Nvidia GPU and want to mine eth.
 
 ### How to run
 ```
-$ nvidia-docker run -it anthonytatowicz/eth-cuda-miner ARG1 ARG2 ...
+$ nvidia-docker run -it jhgoodwin/eth-cuda-miner ARG1 ARG2 ...
 
 # Example
-$ nvidia-docker run -it anthonytatowicz/eth-cuda-miner \
+$ nvidia-docker run -it jhgoodwin/eth-cuda-miner \
 -S us-west1.nanopool.org:9999 \
 -O <your_wallet_address>.<worker_name>/<your_email>
 ```
@@ -29,5 +29,5 @@ $ nvidia-docker run -it anthonytatowicz/eth-cuda-miner \
 `$ etherminer --help`
 
 ### Questions?
-You can leave a comment below or send an email to `ajtatowicz@gmail.com`.
-If this helped and you'd like to leave a tip --> `0x20ad58fe023265577565c7eb44b55c31e7497c33`
+You can leave a comment below or send an email to `john@jjgoodwin.com`.
+If this helped and you'd like to leave a tip --> `0xb27463a7f77f8f88746db6d16262eb77ce393c2f`
