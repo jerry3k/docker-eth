@@ -1,5 +1,5 @@
 # Ethereum CUDA Miner
-
+[![](https://images.microbadger.com/badges/image/fish2/docker-ethminer.svg)](https://microbadger.com/images/fish2/docker-ethminer "Get your own image badge on microbadger.com")
 
 ### Docker container for Ethereum mining with CUDA.
 
@@ -13,11 +13,12 @@ This image pulls https://github.com/ethereum-mining/ethminer/releases unpacks it
 
 ### How to run using nvidia-docker 2.x
 ```
-$ docker run --runtime=nvidia --rm -it jhgoodwin/eth-cuda-miner ARG1 ARG2 ...
+$ docker run --runtime=nvidia --rm -it fish2/docker-ethminer ARG1 ARG2 ...
 
 # Example
-$ docker run --runtime=nvidia --rm -it jhgoodwin/eth-cuda-miner \
--S us-west1.nanopool.org:9999 \
+$ docker run --runtime=nvidia --rm -it fish2/docker-ethminer \
+-S eu1.ethermine.org:4444 \
+-FS us1.ethermine.org:4444 \
 -O <your_wallet_address>.<worker_name>/<your_email>
 ```
 
@@ -27,9 +28,5 @@ $ docker run --runtime=nvidia --rm -it jhgoodwin/eth-cuda-miner \
 
 ### Help
 ```
-docker run --rm --runtime=nvidia jhgoodwin/eth-cuda-miner --help
+docker run --rm --runtime=nvidia fish2/docker-ethminer --help
 ```
-
-### Questions?
-You can leave a comment below or send an email to `john@jjgoodwin.com`.
-If this helped and you'd like to leave a tip --> `0xb27463a7f77f8f88746db6d16262eb77ce393c2f`

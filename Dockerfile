@@ -1,6 +1,7 @@
 FROM nvidia/cuda:9.0-runtime-ubuntu16.04
 
-MAINTAINER John Goodwin <john@jjgoodwin.com>
+# set maintainer label
+LABEL maintainer="fish2"
 
 WORKDIR /root
 
@@ -13,14 +14,22 @@ ENV GPU_MAX_ALLOC_PERCENT=100
 ENV GPU_SINGLE_ALLOC_PERCENT=100
 ENV ETH_DOWNLOAD_URL=https://github.com/ethereum-mining/ethminer/releases/download/v$ETH_VER/ethminer-$ETH_VER-Linux.tar.gz
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        ca-certificates \
-        curl \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
 
-RUN curl -fsSL "$ETH_DOWNLOAD_URL" -o ethminer.tar.gz \
-    && tar -C /usr/local -xzf ethminer.tar.gz \
-    && rm ethminer.tar.gz
+DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
+
+DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    apt-utils \
+    ca-certificates \
+    curl && \
+
+curl -L "$ETH_DOWNLOAD_URL" -o ethminer.tar.gz && \
+
+tar -xf ethminer.tar.gz -C /usr/local && \
+
+# Clean Up
+apt-get remove --purge -y curl && apt-get autoremove -y && apt-get clean && \
+
+rm -rf ethminer.tar.gz /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENTRYPOINT ["/usr/local/bin/ethminer", "-U"]
