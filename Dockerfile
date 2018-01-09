@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-runtime-ubuntu16.04
+FROM nvidia/cuda:9.1-runtime-ubuntu16.04
 
 # set maintainer label
 LABEL maintainer="fish2"
@@ -6,7 +6,7 @@ LABEL maintainer="fish2"
 WORKDIR /root
 
 # Env setup
-ENV ETH_VER=0.12.0
+ENV ETH_VER=0.13.0rc4
 ENV GPU_FORCE_64BIT_PTR=0
 ENV GPU_MAX_HEAP_SIZE=100
 ENV GPU_USE_SYNC_OBJECTS=1
