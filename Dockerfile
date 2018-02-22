@@ -20,9 +20,9 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apt-utils \
     ca-certificates \
     curl && \
-curl -L "$ETH_DOWNLOAD_URL" -o ethminer.tar.gz && \
-tar -xf ethminer.tar.gz -C /usr/local && \
+curl -L "$ETH_DOWNLOAD_URL" -o /tmp/ethminer.tar.gz && \
+tar -xf /tmp/ethminer.tar.gz -C /usr/local && \
 apt-get remove --purge -y curl && apt-get autoremove -y && apt-get clean && \
-rm -rf ethminer.tar.gz /var/lib/apt/lists/* /tmp/* /var/tmp/*
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENTRYPOINT ["/usr/local/bin/ethminer", "-U"]
