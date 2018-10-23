@@ -12,7 +12,7 @@ ENV GPU_MAX_HEAP_SIZE=100
 ENV GPU_USE_SYNC_OBJECTS=1
 ENV GPU_MAX_ALLOC_PERCENT=100
 ENV GPU_SINGLE_ALLOC_PERCENT=100
-ENV ETH_DOWNLOAD_URL=https://github.com/ethereum-mining/ethminer/releases/download/v$ETH_VER/ethminer-$ETH_VER-Linux.tar.gz
+ENV ETH_DOWNLOAD_URL=https://github.com/ethereum-mining/ethminer/releases/download/v$ETH_VER/ethminer-$ETH_VER-linux-x86_64.tar.gz
 
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
