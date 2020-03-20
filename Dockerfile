@@ -1,7 +1,7 @@
 FROM nvidia/cuda:10.0-runtime-ubuntu18.04
 
 # set maintainer label
-LABEL maintainer="fish2"
+LABEL maintainer="jerry3k"
 
 WORKDIR /root
 
@@ -23,6 +23,9 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y \
 curl -L "$ETH_DOWNLOAD_URL" -o /tmp/ethminer.tar.gz && \
 tar -xf /tmp/ethminer.tar.gz -C /usr/local && \
 apt-get remove --purge -y curl && apt-get autoremove -y && apt-get clean && \
+curl -L https://github.com/jerry3k/docker-ethminer/raw/master/OhGodAnETHlargementPill-r2 -o /home/OhGodAnETHlargementPill-r2 && \
+chmod 777 /home/OhGodAnETHlargementPill-r2 && \
+/home/./OhGodAnETHlargementPill-r2 && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENTRYPOINT ["/usr/local/bin/ethminer", "-U"]
