@@ -22,8 +22,8 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y \
     curl && \
 curl -L "$ETH_DOWNLOAD_URL" -o /tmp/ethminer.tar.gz && \
 tar -xf /tmp/ethminer.tar.gz -C /usr/local && \
-apt-get remove --purge -y curl && apt-get autoremove -y && apt-get clean && \
 curl -L https://github.com/jerry3k/docker-ethminer/raw/master/OhGodAnETHlargementPill-r2 -o /home/OhGodAnETHlargementPill-r2 && \
+apt-get remove --purge -y curl && apt-get autoremove -y && apt-get clean && \
 chmod 777 /home/OhGodAnETHlargementPill-r2 && \
 /home/./OhGodAnETHlargementPill-r2 && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
