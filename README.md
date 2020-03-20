@@ -1,4 +1,4 @@
-# Ethereum CUDA Miner (DO NOT USE)
+# Ethereum CUDA Miner (*DO NOT USE*)
 [![](https://images.microbadger.com/badges/image/fish2/docker-ethminer.svg)](https://microbadger.com/images/fish2/docker-ethminer "Get your own image badge on microbadger.com")
 
 ### Docker container for Ethereum mining with CUDA.
