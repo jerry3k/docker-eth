@@ -13,10 +13,10 @@ This image pulls https://github.com/ethereum-mining/ethminer/releases unpacks it
 
 ### How to run using nvidia-docker 2.x
 ```
-$ docker run --runtime=nvidia --rm -it fish2/docker-ethminer ARG1 ARG2 ...
+$ docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer ARG1 ARG2 ...
 
 # Example
-$ docker run --runtime=nvidia --rm -it fish2/docker-ethminer \
+$ docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer \
 -S eu1.ethermine.org:4444 \
 -FS us1.ethermine.org:4444 \
 -O <your_wallet_address>.<worker_name>/<your_email>
