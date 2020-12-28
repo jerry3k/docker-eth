@@ -3,6 +3,7 @@ FROM nvidia/cuda:10.0-runtime-ubuntu18.04
 # set maintainer label
 LABEL maintainer="jerry3k"
 
+
 WORKDIR /root
 
 # Env setup
