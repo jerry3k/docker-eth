@@ -16,10 +16,7 @@ This image pulls https://github.com/ethereum-mining/ethminer/releases unpacks it
 $ docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer ARG1 ARG2 ...
 
 # Example
-$ docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer \
--S eu1.ethermine.org:4444 \
--FS us1.ethermine.org:4444 \
--O 0x50210a4a578d10346ead3a770e888ca749a4bccb.rigx/jerry3k@hotmail.com
+docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com
 ```
 
 **Note:** `-U` is set by default
