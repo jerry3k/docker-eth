@@ -9,14 +9,14 @@ This image pulls https://github.com/ethereum-mining/ethminer/releases unpacks it
 
 ### Requirements
 - Nvidia drivers (I also needed cuda) for your GPU, you can get them here: [Nvidia drivers](http://www.nvidia.com/Download/index.aspx)
-- Nvidia-docker (so docker can access your GPU) install instructions here: [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+- Nvidia-docker (so docker can access your GPU) install instructions here: [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker)
 
 ### How to run using nvidia-docker 2.x
 ```
 $ docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer ARG1 ARG2 ...
 
 # Example
-docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com
+docker run -d --name=ethminer --runtime=nvidia --rm -it jerry3k/docker-ethminer -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com
 ```
 
 **Note:** `-U` is set by default
