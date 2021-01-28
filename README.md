@@ -16,11 +16,11 @@ This image pulls https://github.com/ethereum-mining/ethminer/releases unpacks it
 docker run --runtime=nvidia --rm -it jerry3k/docker-ethminer ARG1 ARG2 ...
 
 # Example always run on boot
-docker run -d --name=ethminer --restart=always --runtime=nvidia jerry3k/docker-ethminer -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com
+docker run -d --name=ethminer --restart=always --runtime=nvidia jerry3k/docker-ethminer -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com 
 
 
 # Example to run just once (close on stop) - good for testing
-docker run --name=ethminer --runtime=nvidia --rm -it jerry3k/docker-ethminer -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com
+docker run --name=ethminer-temp --runtime=nvidia --rm -it jerry3k/docker-ethminer -HWMON -P stratum1+tcp://0x50210a4a578d10346ead3a770e888ca749a4bccb@eth-eu1.nanopool.org:9999/tag-a10/jerry3k@hotmail.com
 
 # other tags
 -HWMON Displays gpu temp and fan percent
